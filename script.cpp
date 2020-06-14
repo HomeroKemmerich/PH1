@@ -57,7 +57,7 @@ int main (int argc, char *argv[])
     }
     fclose(Arquivo);
 
-    while (true)
+    while (1)
     {
         //Atualização da próxima instrução
         end = PC;
@@ -241,7 +241,7 @@ int main (int argc, char *argv[])
             printf("HLT\n\n");
             PC ++;
             counter ++;
-            return 0;
+            break;
         }
 
     }
