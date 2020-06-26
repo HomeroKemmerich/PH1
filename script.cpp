@@ -184,7 +184,7 @@ int main (int argc, char *argv[])
                 continue;
             case 0xB0:
             //JMP
-                RDM = MEM[end+1];
+                // RDM = MEM[end+1];
                 printf("JMP %x ; ", RDM);
                 printf("PC <- %x\n", RDM);
                 end = RDM;
@@ -197,44 +197,43 @@ int main (int argc, char *argv[])
             //JEQ
                 if (AC == 0)
                 {
-                    RDM = MEM[end+1];
+                    // RDM = MEM[end+1];
                     printf("JEQ %x ; ", RDM);
                     printf("se (AC == 0) entao PC <- %x\n", RDM);
-                    end = RDM;
-                    RDM = MEM[end+1];
+                    // end = RDM;
+                    // RDM = MEM[end+1];
                     PC = RDM;
-                    PC += 2;
-                    counter ++;
-                    continue;
                 }
+                PC += 2;
+                counter ++;
+                continue;
             case 0xD0:
             //JG
                 if (AC > 0)
                 {
-                    RDM = MEM[end+1];
+                    // RDM = MEM[end+1];
                     printf("JG %x ; ", RDM);
                     printf("se (AC > 0) entao PC <- %x\n", RDM);
-                    end = RDM;
-                    RDM = MEM[end+1];
+                    // end = RDM;
+                    // RDM = MEM[end+1];
                     PC = RDM;
-                    PC += 2;
-                    counter ++;
-                    continue;
                 }
+                PC += 2;
+                counter ++;
+                continue;
             case 0xE0:
             //JL
                 if (AC < 0)
                 {
-                    RDM = MEM[end+1];
-                    printf("JL %x ; ", RDM);
+                    // RDM = MEM[end+1];
                     printf("se (AC < 0) entao PC <- %x\n", RDM);
-                    end = RDM;
-                    RDM = MEM[end+1];
+                    // end = RDM;
+                    // RDM = MEM[end+1];
                     PC = RDM;
-                    PC += 2;
-                    counter ++;
-                    continue;
                 }
+                PC += 2;
+                counter ++;
+                continue;
             case 0xF0:
             //HLT
                 printf("HLT\n\n");
@@ -254,7 +253,7 @@ int main (int argc, char *argv[])
     printf("PC %02x\n\n", PC);
 
     printf("Memory:\n");
-    for(int i=128; i < 255; i++)
+    for(int i = 0; i < 256; i++)
     {
         if(Memory[i] != MEM[i])
         {
